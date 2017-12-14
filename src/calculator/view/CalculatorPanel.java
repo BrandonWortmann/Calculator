@@ -1,6 +1,6 @@
 package calculator.view;
 
-public class MainPanel
+public class CalculatorPanel
 {
 
 }
