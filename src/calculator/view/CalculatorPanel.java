@@ -1,6 +1,11 @@
 package calculator.view;
 
-public class CalculatorPanel
+import javax.swing.JPanel;
+import calculator.controller.CalculatorController;
+
+public class CalculatorPanel extends JPanel
 {
+	
+	
 
 }
