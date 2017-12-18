@@ -12,7 +12,7 @@ public class CalculatorFrame extends JFrame
 	{
 		super();
 		this.appController = appController;
-		appPanel = new CalculatorPanel();
+		appPanel = new CalculatorPanel(appController);
 		
 		setupFrame();
 		
