@@ -19,6 +19,7 @@ public class Button extends JButton
 		this.appController = appController;
 		this.buttonSymbol = buttonSymbol;
 		this.type = type;
+		this.setBorder(new LineBorder(Color.BLACK,5));
 		
 		if(type == 1)
 		{
@@ -43,9 +44,10 @@ public class Button extends JButton
 		
 		this.setText(buttonSymbol);
 		this.setOpaque(true);
-		this.setBackground(Color.BLUE);
+		this.setBackground(Color.DARK_GRAY);
 		this.setForeground(Color.WHITE);
 		this.setFont(new Font("Lucida Grande", Font.PLAIN, 50));
+		
 		
 	}
 	
@@ -53,7 +55,7 @@ public class Button extends JButton
 	{
 		this.setText(buttonSymbol);
 		this.setOpaque(true);
-		this.setBackground(Color.RED);
+		this.setBackground(Color.BLUE);
 		this.setForeground(Color.WHITE);
 		this.setFont(new Font("Lucida Grande",Font.PLAIN, 35));
 		
@@ -62,13 +64,22 @@ public class Button extends JButton
 	
 	public void setupEquals()
 	{
+		this.setText(buttonSymbol);
+		this.setOpaque(true);
+		this.setBackground(Color.RED);
+		this.setForeground(Color.WHITE);
+		this.setFont(new Font("Lucida Grande",Font.PLAIN, 35));
 		
 	}
 	
 	public void setupOther()
 	{
-		
-		
+		this.setText(buttonSymbol);
+		this.setOpaque(true);
+		this.setBackground(Color.GREEN);
+		this.setForeground(Color.WHITE);
+		this.setFont(new Font("Lucida Grande",Font.PLAIN, 35));
+				
 	}
 	
 	

@@ -68,7 +68,7 @@ public class ButtonPanel extends JPanel
 	
 	public void setupPanel()
 	{
-		this.setBackground(Color.DARK_GRAY);
+		this.setBackground(Color.LIGHT_GRAY);
 		this.add(clearButton);
 		this.add(answerButton);
 		this.add(backButton);
