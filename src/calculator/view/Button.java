@@ -4,6 +4,11 @@ import calculator.controller.CalculatorController;
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 import javax.swing.border.LineBorder;
 
 public class Button extends JButton
@@ -15,7 +20,7 @@ public class Button extends JButton
 	public Button(CalculatorController appController, String buttonSymbol, int type)
 	{
 		super();
-		setFont(new Font("Lucida Grande", Font.PLAIN, 13));
+		this.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
 		this.appController = appController;
 		this.buttonSymbol = buttonSymbol;
 		this.type = type;
@@ -37,21 +42,22 @@ public class Button extends JButton
 		{
 			setupOther();
 		}
+		setupListeners();
 	}
 	
-	public void setupNumber()
+	private void setupNumber()
 	{
 		
 		this.setText(buttonSymbol);
 		this.setOpaque(true);
 		this.setBackground(Color.DARK_GRAY);
 		this.setForeground(Color.WHITE);
-		this.setFont(new Font("Lucida Grande", Font.PLAIN, 50));
+		this.setFont(new Font("Lucida Grande", Font.PLAIN, 55));
 		
 		
 	}
 	
-	public void setupFunction()
+	private void setupFunction()
 	{
 		this.setText(buttonSymbol);
 		this.setOpaque(true);
@@ -62,7 +68,7 @@ public class Button extends JButton
 		
 	}
 	
-	public void setupEquals()
+	private void setupEquals()
 	{
 		this.setText(buttonSymbol);
 		this.setOpaque(true);
@@ -72,14 +78,46 @@ public class Button extends JButton
 		
 	}
 	
-	public void setupOther()
+	private void setupOther()
 	{
 		this.setText(buttonSymbol);
 		this.setOpaque(true);
-		this.setBackground(Color.GREEN);
+		this.setBackground(new Color(0,200,150));
 		this.setForeground(Color.WHITE);
-		this.setFont(new Font("Lucida Grande",Font.PLAIN, 35));
+		this.setFont(new Font("Lucida Grande",Font.PLAIN, 50));
 				
+	}
+	
+	private void setupListeners()
+	{
+		this.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent enter)
+			{
+				System.out.println("works");
+
+			}
+		});
+		
+		this.addMouseListener(new MouseAdapter() 
+		{ 
+	          public void mouseEntered(MouseEvent enter) 
+	          { 
+	        	  setBorder(new LineBorder(Color.WHITE,5)); 
+	          } 
+	     }); 
+		
+		this.addMouseListener(new MouseAdapter() 
+		{ 
+	          public void mouseExited(MouseEvent exit) 
+	          { 
+	        	  setBorder(new LineBorder(Color.BLACK,5)); 
+	          } 
+	     }); 
+		
+		
+		
+		
 	}
 	
 	
