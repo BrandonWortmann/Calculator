@@ -15,7 +15,7 @@ public class Button extends JButton
 {
 	private CalculatorController appController;
 	private String buttonSymbol;
-	private int type;
+	
 	
 	public Button(CalculatorController appController, String buttonSymbol, int type)
 	{
@@ -23,7 +23,6 @@ public class Button extends JButton
 		this.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
 		this.appController = appController;
 		this.buttonSymbol = buttonSymbol;
-		this.type = type;
 		this.setBorder(new LineBorder(Color.BLACK,5));
 		
 		if(type == 1)
@@ -63,7 +62,7 @@ public class Button extends JButton
 		this.setOpaque(true);
 		this.setBackground(Color.BLUE);
 		this.setForeground(Color.WHITE);
-		this.setFont(new Font("Lucida Grande",Font.PLAIN, 35));
+		this.setFont(new Font("Lucida Grande",Font.PLAIN, 50));
 		
 		
 	}
