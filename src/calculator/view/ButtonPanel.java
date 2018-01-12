@@ -54,7 +54,7 @@ public class ButtonPanel extends JPanel
 		equalsButton = new Button(appController, "=", 3);
 		decimalButton = new Button(appController, ".", 1);
 		negativeButton = new Button(appController, "+/-", 1);
-		answerButton = new Button(appController, "ANS", 4);
+		answerButton = new Button(appController, "RAND", 4);
 		backButton = new Button(appController, "-->", 4);
 		clearButton = new Button(appController, "C", 4);
 

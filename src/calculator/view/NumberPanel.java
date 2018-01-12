@@ -11,5 +11,11 @@ public class NumberPanel extends JPanel
 {
 	private JTextArea numberArea;
 	private CalculatorController appController;
+	
+	public NumberPanel(CalculatorController appController)
+	{
+		super();
+		numberArea = new JTextArea(); 
+	}
 
 }
