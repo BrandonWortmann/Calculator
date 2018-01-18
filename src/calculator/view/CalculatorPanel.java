@@ -25,7 +25,7 @@ public class CalculatorPanel extends JPanel
 		setupLayout();
 	}
 	
-	public void setupPanel()
+	private void setupPanel()
 	{
 		this.add(buttonPanel);
 		this.add(numberPanel);
@@ -33,7 +33,7 @@ public class CalculatorPanel extends JPanel
 		
 	}
 	
-	public void setupLayout()
+	private void setupLayout()
 	{
 		appLayout.putConstraint(SpringLayout.WEST, buttonPanel, 0, SpringLayout.WEST, this);
 		appLayout.putConstraint(SpringLayout.SOUTH, buttonPanel, 0, SpringLayout.SOUTH, this);

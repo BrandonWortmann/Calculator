@@ -8,12 +8,18 @@ public class CalculatorController
 	
 	double total;
 	double newText;
+	double previousText;
+	boolean wasSubtract;
 
 	public CalculatorController()
 	{
 		appFrame = new CalculatorFrame(this);
 		total = 0.0;
 		newText = 0.0;
+		previousText = 0.0;
+		wasSubtract = false;
+		
+		
 	}
 	
 	public void add(String input)
@@ -23,9 +29,11 @@ public class CalculatorController
 			newText = Double.parseDouble(input);
 		}
 		
+		previousText = newText;
 		total = total + newText;
+		newText = 0.0;
 		
-		
+		appFrame.setPanel(total + "");
 	}
 	
 	public void subtract(String input)
@@ -34,8 +42,9 @@ public class CalculatorController
 		{
 			newText = Double.parseDouble(input);
 		}
-		
+		previousText = newText;
 		total = total - newText;
+		newText = 0.0;
 	}
 	
 	public void multiply(String input)
@@ -45,6 +54,7 @@ public class CalculatorController
 			newText = Double.parseDouble(input);
 		}
 		
+		previousText *= newText
 		total = total * newText;
 	}
 	
