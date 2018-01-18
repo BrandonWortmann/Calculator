@@ -54,7 +54,7 @@ public class CalculatorController
 			newText = Double.parseDouble(input);
 		}
 		
-		previousText *= newText
+		previousText *= newText;
 		total = total * newText;
 	}
 	
