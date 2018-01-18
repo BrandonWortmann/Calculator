@@ -19,6 +19,7 @@ public class NumberPanel extends JPanel
 		super();
 		numberArea = new JTextArea();
 		appLayout = new SpringLayout();
+		appLayout.putConstraint(SpringLayout.SOUTH, numberArea, 0, SpringLayout.SOUTH, this);
 		
 		
 		
@@ -33,8 +34,9 @@ public class NumberPanel extends JPanel
 		this.setBorder(new LineBorder(Color.BLACK,3));
 		
 		numberArea.setBackground(new Color(238, 232, 170));
-		numberArea.setFont(new Font("Adobe Fangsong Std", Font.PLAIN, 100));
+		numberArea.setFont(new Font("Lucida Console", Font.PLAIN, 70));
 		numberArea.setEditable(false);
+		numberArea.setText("                    0");
 		
 	}
 	
@@ -42,9 +44,13 @@ public class NumberPanel extends JPanel
 	{
 		appLayout.putConstraint(SpringLayout.NORTH, numberArea, 0, SpringLayout.NORTH, this);
 		appLayout.putConstraint(SpringLayout.WEST, numberArea, 0, SpringLayout.WEST, this);
-		appLayout.putConstraint(SpringLayout.SOUTH, numberArea, 0, SpringLayout.SOUTH, this);
 		appLayout.putConstraint(SpringLayout.EAST, numberArea, 0, SpringLayout.EAST, this);
 		
+	}
+	
+	public void changeText(String text)
+	{
+		numberArea.setText(text);
 	}
 
 }

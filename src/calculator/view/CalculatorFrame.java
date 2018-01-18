@@ -20,13 +20,18 @@ public class CalculatorFrame extends JFrame
 	
 	private void setupFrame()
 	{
-		this.setSize(500 , 700);
+		this.setSize(500 , 600);
 		this.setTitle("Calculator");
 		this.setResizable(false);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.add(appPanel);
 		
 		this.setVisible(true);
+	}
+	
+	private void setPanel(String input)
+	{
+		
 	}
 
 }

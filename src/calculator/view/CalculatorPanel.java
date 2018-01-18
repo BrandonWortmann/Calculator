@@ -6,8 +6,8 @@ import javax.swing.SpringLayout;
 
 public class CalculatorPanel extends JPanel
 {
-	private JPanel buttonPanel;
-	private JPanel numberPanel;
+	private ButtonPanel buttonPanel;
+	private NumberPanel numberPanel;
 	private CalculatorController appController;
 	private SpringLayout appLayout;
 	
@@ -17,6 +17,7 @@ public class CalculatorPanel extends JPanel
 		this.appController = appController;
 		appLayout = new SpringLayout();
 		buttonPanel = new ButtonPanel(appController);
+		appLayout.putConstraint(SpringLayout.NORTH, buttonPanel, 80, SpringLayout.NORTH, this);
 		numberPanel = new NumberPanel();
 		
 		
@@ -41,8 +42,12 @@ public class CalculatorPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.WEST, numberPanel, 0, SpringLayout.WEST, this);
 		appLayout.putConstraint(SpringLayout.SOUTH, numberPanel, 0, SpringLayout.NORTH, buttonPanel);
 		appLayout.putConstraint(SpringLayout.EAST, numberPanel, 0, SpringLayout.EAST, this);
-		appLayout.putConstraint(SpringLayout.NORTH, buttonPanel, 100, SpringLayout.NORTH, this);
 		
+	}
+	
+	public void setPanel(String input)
+	{
+		numberPanel.changeText(input);
 	}
 
 }
