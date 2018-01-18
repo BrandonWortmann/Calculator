@@ -15,6 +15,7 @@ public class Button extends JButton
 {
 	private CalculatorController appController;
 	private String buttonSymbol;
+	private Color background;
 	
 	
 	public Button(CalculatorController appController, String buttonSymbol, int type)
@@ -27,19 +28,28 @@ public class Button extends JButton
 		
 		if(type == 1)
 		{
+			background = Color.DARK_GRAY;
 			setupNumber();
 		}
 		else if(type == 2)
 		{
+			background = Color.BLUE;
 			setupFunction();
 		}
 		else if(type == 3)
 		{
+			background = Color.RED;
 			setupEquals();
+		}
+		else if(type == 4)
+		{
+			background = new Color(0,200,150);
+			setupOther();
 		}
 		else
 		{
-			setupOther();
+			background = new Color(0,200,150);
+			setupRand();
 		}
 		setupListeners();
 	}
@@ -49,7 +59,7 @@ public class Button extends JButton
 		
 		this.setText(buttonSymbol);
 		this.setOpaque(true);
-		this.setBackground(Color.DARK_GRAY);
+		this.setBackground(background);
 		this.setForeground(Color.WHITE);
 		this.setFont(new Font("Lucida Grande", Font.PLAIN, 55));
 		
@@ -60,7 +70,7 @@ public class Button extends JButton
 	{
 		this.setText(buttonSymbol);
 		this.setOpaque(true);
-		this.setBackground(Color.BLUE);
+		this.setBackground(background);
 		this.setForeground(Color.WHITE);
 		this.setFont(new Font("Lucida Grande",Font.PLAIN, 50));
 		
@@ -71,7 +81,7 @@ public class Button extends JButton
 	{
 		this.setText(buttonSymbol);
 		this.setOpaque(true);
-		this.setBackground(Color.RED);
+		this.setBackground(background);
 		this.setForeground(Color.WHITE);
 		this.setFont(new Font("Lucida Grande",Font.PLAIN, 35));
 		
@@ -81,37 +91,49 @@ public class Button extends JButton
 	{
 		this.setText(buttonSymbol);
 		this.setOpaque(true);
-		this.setBackground(new Color(0,200,150));
+		this.setBackground(background);
 		this.setForeground(Color.WHITE);
 		this.setFont(new Font("Lucida Grande",Font.PLAIN, 50));
 				
 	}
 	
+	private void setupRand()
+	{
+		this.setText(buttonSymbol);
+		this.setOpaque(true);
+		this.setBackground(background);
+		this.setForeground(Color.WHITE);
+		this.setFont(new Font("Lucida Grande",Font.PLAIN, 35));
+		
+	}
+	
 	private void setupListeners()
 	{
-		this.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent enter)
-			{
-				System.out.println("works");
-
-			}
-		});
+		
 		
 		this.addMouseListener(new MouseAdapter() 
 		{ 
 	          public void mouseEntered(MouseEvent enter) 
 	          { 
-	        	  setBorder(new LineBorder(Color.WHITE,5)); 
+	        	  	setBorder(new LineBorder(Color.WHITE,5)); 
 	          } 
-	     }); 
-		
-		this.addMouseListener(new MouseAdapter() 
-		{ 
+	   
 	          public void mouseExited(MouseEvent exit) 
 	          { 
-	        	  setBorder(new LineBorder(Color.BLACK,5)); 
+	        	  	setBorder(new LineBorder(Color.BLACK,5)); 
 	          } 
+	          
+	          public void mousePressed(MouseEvent onClick)
+	          {
+	        	  	setBackground(background.darker());
+	          }
+	          
+	          public void mouseReleased(MouseEvent offClick)
+	          {
+	        	  	setBackground(background);
+	          }
+	          
+	          
 	     }); 
 		
 		

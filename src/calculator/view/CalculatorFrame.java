@@ -25,6 +25,7 @@ public class CalculatorFrame extends JFrame
 		this.setResizable(false);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.add(appPanel);
+		
 		this.setVisible(true);
 	}
 
