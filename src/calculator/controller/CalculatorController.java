@@ -1,10 +1,14 @@
 package calculator.controller;
 
 import calculator.view.CalculatorFrame;
+import calculator.view.NumberPanel;
 
 public class CalculatorController
 {
 	private CalculatorFrame appFrame;
+	private NumberPanel numPanel;
+	
+	private String number;
 	
 	double total;
 	double newText;
@@ -14,12 +18,19 @@ public class CalculatorController
 	public CalculatorController()
 	{
 		appFrame = new CalculatorFrame(this);
+		numPanel = new NumberPanel();
 		total = 0.0;
 		newText = 0.0;
 		previousText = 0.0;
 		wasSubtract = false;
+		number = "";
 		
 		
+	}
+	public void changeText(String number)
+	{
+		this.number +=  number;
+		numPanel.changeText("number");
 	}
 	
 	public void add(String input)
@@ -29,11 +40,11 @@ public class CalculatorController
 			newText = Double.parseDouble(input);
 			total = total + newText;
 			wasSubtract = false;
-			appFrame.setPanel(total + "");
+			numPanel.changeText(total + "");
 		}
 		else
 		{
-			appFrame.setPanel("Syntax Error");
+			numPanel.changeText("Syntax Error");
 		}
 		
 		
@@ -49,11 +60,11 @@ public class CalculatorController
 			previousText = newText;
 			total = total - newText;
 			wasSubtract = true;
-			appFrame.setPanel(total + "");
+			numPanel.changeText(total + "");
 		}
 		else
 		{
-			appFrame.setPanel("Syntax Error");
+			numPanel.changeText("Syntax Error");
 		}
 		
 	}
@@ -77,11 +88,11 @@ public class CalculatorController
 				
 			}
 			
-			appFrame.setPanel(total + "");
+			numPanel.changeText(total + "");
 		}
 		else
 		{
-			appFrame.setPanel("Syntax Error");
+			numPanel.changeText("Syntax Error");
 		}
 		
 		
@@ -106,11 +117,11 @@ public class CalculatorController
 				
 			}
 			
-			appFrame.setPanel(total + "");
+			numPanel.changeText(total + "");
 		}
 		else
 		{
-			appFrame.setPanel(total + "");
+			numPanel.changeText(total + "");
 		}
 		
 		

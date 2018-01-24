@@ -26,32 +26,38 @@ public class Button extends JButton
 		this.buttonSymbol = buttonSymbol;
 		this.setBorder(new LineBorder(Color.BLACK,5));
 		
+		
 		if(type == 1)
 		{
 			background = Color.DARK_GRAY;
 			setupNumber();
+			setupOtherListeners();
 		}
 		else if(type == 2)
 		{
 			background = Color.BLUE;
 			setupFunction();
+			setupListeners();
 		}
 		else if(type == 3)
 		{
 			background = Color.RED;
 			setupEquals();
+			setupListeners();
 		}
 		else if(type == 4)
 		{
 			background = new Color(0,200,150);
 			setupOther();
+			setupListeners();
 		}
 		else
 		{
 			background = new Color(0,200,150);
 			setupRand();
+			setupListeners();
 		}
-		setupListeners();
+		
 	}
 	
 	private void setupNumber()
@@ -131,6 +137,7 @@ public class Button extends JButton
 	          public void mouseReleased(MouseEvent offClick)
 	          {
 	        	  	setBackground(background);
+	        	  	
 	          }
 	          
 	          
@@ -139,6 +146,35 @@ public class Button extends JButton
 		
 		
 		
+	}
+	private void setupOtherListeners()
+	{
+		this.addMouseListener(new MouseAdapter() 
+		{ 
+	          public void mouseEntered(MouseEvent enter) 
+	          { 
+	        	  	setBorder(new LineBorder(Color.WHITE,5)); 
+	          } 
+	   
+	          public void mouseExited(MouseEvent exit) 
+	          { 
+	        	  	setBorder(new LineBorder(Color.BLACK,5)); 
+	          } 
+	          
+	          public void mousePressed(MouseEvent onClick)
+	          {
+	        	  	setBackground(background.darker());
+	          }
+	          
+	          public void mouseReleased(MouseEvent offClick)
+	          {
+	        	  	setBackground(background);
+	        	  	appController.changeText(buttonSymbol);
+	        	  	
+	          }
+	          
+	          
+	     }); 
 	}
 	
 	
