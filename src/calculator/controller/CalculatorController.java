@@ -27,13 +27,18 @@ public class CalculatorController
 		if(checkInput(input))
 		{
 			newText = Double.parseDouble(input);
+			total = total + newText;
+			wasSubtract = false;
+			appFrame.setPanel(total + "");
+		}
+		else
+		{
+			appFrame.setPanel("Syntax Error");
 		}
 		
-		previousText = newText;
-		total = total + newText;
-		newText = 0.0;
 		
-		appFrame.setPanel(total + "");
+		
+		
 	}
 	
 	public void subtract(String input)
@@ -41,10 +46,16 @@ public class CalculatorController
 		if(checkInput(input))
 		{
 			newText = Double.parseDouble(input);
+			previousText = newText;
+			total = total - newText;
+			wasSubtract = true;
+			appFrame.setPanel(total + "");
 		}
-		previousText = newText;
-		total = total - newText;
-		newText = 0.0;
+		else
+		{
+			appFrame.setPanel("Syntax Error");
+		}
+		
 	}
 	
 	public void multiply(String input)
@@ -52,10 +63,28 @@ public class CalculatorController
 		if(checkInput(input))
 		{
 			newText = Double.parseDouble(input);
+			if(wasSubtract)
+			{
+				total = total + previousText;
+				previousText = previousText * newText;
+				total = total - previousText;
+			}
+			else
+			{
+				total = total - previousText;
+				previousText = previousText * newText;
+				total = total + previousText;
+				
+			}
+			
+			appFrame.setPanel(total + "");
+		}
+		else
+		{
+			appFrame.setPanel("Syntax Error");
 		}
 		
-		previousText *= newText;
-		total = total * newText;
+		
 	}
 	
 	public void divide(String input)
@@ -63,9 +92,28 @@ public class CalculatorController
 		if(checkInput(input))
 		{
 			newText = Double.parseDouble(input);
+			if(wasSubtract)
+			{
+				total = total + previousText;
+				previousText = previousText / newText;
+				total = total - previousText;
+			}
+			else
+			{
+				total = total - previousText;
+				previousText = previousText / newText;
+				total = total + previousText;
+				
+			}
+			
+			appFrame.setPanel(total + "");
+		}
+		else
+		{
+			appFrame.setPanel(total + "");
 		}
 		
-		total = total / newText;
+		
 	}
 	
 	public boolean checkInput(String input)

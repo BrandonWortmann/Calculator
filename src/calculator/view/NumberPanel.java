@@ -13,6 +13,7 @@ public class NumberPanel extends JPanel
 {
 	private JTextArea numberArea;
 	private SpringLayout appLayout;
+	private String text;
 	
 	public NumberPanel()
 	{
@@ -48,8 +49,15 @@ public class NumberPanel extends JPanel
 		
 	}
 	
+	public String getNumbers()
+	{
+		
+		return text;
+	}
+	
 	public void changeText(String text)
 	{
+		this.text = text;
 		numberArea.setText(text);
 	}
 
