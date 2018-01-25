@@ -16,6 +16,7 @@ public class Button extends JButton
 	private CalculatorController appController;
 	private String buttonSymbol;
 	private Color background;
+	private String number;
 	
 	
 	public Button(CalculatorController appController, String buttonSymbol, int type)
@@ -25,6 +26,7 @@ public class Button extends JButton
 		this.appController = appController;
 		this.buttonSymbol = buttonSymbol;
 		this.setBorder(new LineBorder(Color.BLACK,5));
+		number = "";
 		
 		
 		if(type == 1)
@@ -175,6 +177,16 @@ public class Button extends JButton
 	          
 	          
 	     }); 
+	}
+	
+	public void setNumber(String input)
+	{
+		number = number + input;
+	}
+	
+	public String getNumber()
+	{
+		return number;
 	}
 	
 	
