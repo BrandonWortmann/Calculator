@@ -29,5 +29,10 @@ public class CalculatorFrame extends JFrame
 		this.setVisible(true);
 	}
 	
+	public void changeNumberPanel(String input)
+	{
+		appPanel.changeNumberPanel(input);
+		
+	}
 
 }

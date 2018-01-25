@@ -45,7 +45,7 @@ public class CalculatorPanel extends JPanel
 		
 	}
 	
-	public void setPanel(String input)
+	public void changeNumberPanel(String input)
 	{
 		numberPanel.changeText(input);
 	}
