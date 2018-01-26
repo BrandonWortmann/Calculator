@@ -4,6 +4,9 @@ import javax.swing.JPanel;
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import calculator.controller.CalculatorController;
 
 
@@ -17,7 +20,7 @@ public class ButtonPanel extends JPanel
 	private JButton fourButton;
 	private JButton fiveButton;
 	private JButton sixButton;
-	private JButton seavenButton;
+	private JButton sevenButton;
 	private JButton eightButton;
 	private JButton nineButton;
 	private JButton plusButton;
@@ -35,6 +38,8 @@ public class ButtonPanel extends JPanel
 	
 	private CalculatorController appController;
 	
+	private String number;
+	
 	
 	public ButtonPanel(CalculatorController appController)
 	{
@@ -46,7 +51,7 @@ public class ButtonPanel extends JPanel
 		fourButton = new Button(appController, "4", 1);
 		fiveButton = new Button(appController, "5", 1);
 		sixButton = new Button(appController, "6", 1);
-		seavenButton = new Button(appController, "7", 1);
+		sevenButton = new Button(appController, "7", 1);
 		eightButton = new Button(appController, "8", 1);
 		nineButton = new Button(appController, "9", 1);
 		plusButton = new Button(appController, "+", 2);
@@ -62,7 +67,10 @@ public class ButtonPanel extends JPanel
 
 		buttonLayout = new GridLayout(5, 4, 10, 10);
 		
+		number ="";
+		
 		setupPanel();
+		setupListeners();
 		
 		
 		
@@ -75,7 +83,7 @@ public class ButtonPanel extends JPanel
 		this.add(answerButton);
 		this.add(backButton);
 		this.add(divideButton);
-		this.add(seavenButton);
+		this.add(sevenButton);
 		this.add(eightButton);
 		this.add(nineButton);
 		this.add(multiplyButton);
@@ -99,7 +107,111 @@ public class ButtonPanel extends JPanel
 		
 	}
 	
+	private void setupListeners()
+	{
+		oneButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent enter)
+			{
+				number = number + "1";
+			}
+		});
+		
+		twoButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent enter)
+			{
+				number = number + "2";
+			}
+		});
+		
+		threeButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent enter)
+			{
+				number = number + "3";
+			}
+		});
+		
+		fourButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent enter)
+			{
+				number = number + "4";
+			}
+		});
+		
+		fiveButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent enter)
+			{
+				number = number + "5";
+			}
+		});
+		
+		sixButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent enter)
+			{
+				number = number + "6";
+			}
+		});
+		
+		sevenButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent enter)
+			{
+				number = number + "7";
+			}
+		});
+		
+		eightButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent enter)
+			{
+				number = number + "8";
+			}
+		});
+		
+		nineButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent enter)
+			{
+				number = number + "9";
+			}
+		});
+		
+		zeroButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent enter)
+			{
+				number = number + ".";
+			}
+		});
+		
+		zeroButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent enter)
+			{
+				number = number + ".";
+			}
+		});
+		
+		
+		
+		
+	}
 	
-
+	
+	public void setNumber(String input)
+	{
+		number = number + input;
+	}
+	
+	public String getNumber()
+	{
+		return number;
+	}
+	
 	
 }
