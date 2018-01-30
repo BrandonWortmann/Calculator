@@ -58,7 +58,14 @@ public class NumberPanel extends JPanel
 	public void changeText(String text)
 	{
 		this.text = text;
-		numberArea.setText(text);
+		
+		for(int i=0;i<21-text.length();i++)
+		{
+			this.text += " ";
+		}
+		this.text += text;
+		numberArea.setText(this.text);
+		
 	}
 
 }
